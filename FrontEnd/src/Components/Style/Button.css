@@ -1,0 +1,19 @@
+@import '../../index.css';
+
+button {
+    font-weight: bolder;
+    letter-spacing: 3px;
+    color: black;
+    border-radius: 30px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--btn-color);
+    border: 1px var(--border-color);
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+button:hover {
+    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.63);
+
+}

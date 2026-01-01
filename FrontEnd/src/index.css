@@ -1,0 +1,23 @@
+:root {
+    --bg-color:#dce0e2;
+    --text-color:#000000;
+    --alt-text-color:white;
+    --btn-color:#ffffff;
+    --btn-hover-color:#b4b4b4;
+    --border-color:#8FAbd4;
+    --header-footer-bg-color:rgba(0, 0, 0, 0.877);
+}
+
+[data-theme="dark"] {
+    --bg-color:#ffffff;
+    --text-color:#ffffff;
+}
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
