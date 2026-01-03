@@ -1,10 +1,12 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useRef,useEffect } from 'react'
 import { Navigate, useNavigate } from "react-router-dom";
 import './Style/Login.css'
-
+import { UseAllContext } from '../Contexts/AllContext';
+import Home from "./Home"
 
 const Login = () => {
+  const {isLogin,setIsLogin} = UseAllContext();
   const [invalidMessage,setInvalidMessage] = useState("");
   const [showInvalidMessage,setShowInvalidMessage] = useState(false);
   const invalidMessageDivRef = useRef();
@@ -13,12 +15,19 @@ const Login = () => {
   const [password,setPassword] = useState("");
   
   
+
+
+
   function submitHandler(e) {
       e.preventDefault();
-      
       setEmail("");
-      setPassword("")
+      setPassword("");
+      setIsLogin(true);
+      navigate("/");
   }
+
+
+
 
   useEffect(() => {
     if (!showInvalidMessage) return;
@@ -30,29 +39,14 @@ const Login = () => {
     return () => clearTimeout(timer);
   }, [showInvalidMessage]);
 
-  function submitHandler(e) {
-    e.preventDefault();
-    if (password != confirmPassword) {
-        setInvalidMessage("password is not matching !");
-        setShowInvalidMessage(true);
-        return;
-      }
-    if (username.length < 5) {
-      setInvalidMessage("Username Must be greater than 5 characters .");
-      setShowInvalidMessage(true);
 
-      return;  
-    }
-      setEmail("");
-      setPassword(""); 
-      setConfirmPassword("");
-      setUsername("");
-  }
+
 
 
   return (
     <>
-    <form onSubmit={submitHandler} id='login-form'>
+
+    {!isLogin ? <form onSubmit={submitHandler} id='login-form'>
       <div className='login-container'>
         <h1 className='login-title'>Login</h1>
         <div className='email-div'>  
@@ -68,9 +62,11 @@ const Login = () => {
           <pre>forget password?</pre>
           <pre onClick={() => navigate("/Register")}><span style={{color:"rgba(0, 140, 255, 1)",fontWeight:"bold"}}> create an account</span></pre>
         </div>
-      </div>
-      </form>
-       {showInvalidMessage && <div className="display-invalid-message" ref={invalidMessageDivRef} >{invalidMessage}</div>}
+      </div> 
+      </form> : <Home />}
+
+
+       {showInvalidMessage && <div className="display-invalid-message" ref={invalidMessageDivRef} >{invalidMessage}</div>} 
       </>
   )
 }

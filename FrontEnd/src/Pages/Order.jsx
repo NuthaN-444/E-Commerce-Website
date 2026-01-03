@@ -1,14 +1,19 @@
 import React from 'react'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
-
+import { UseAllContext } from '../Contexts/AllContext'
+import Login from './Login'
 
 const Order = () => {
+  const {isLogin,setIsLogin} = UseAllContext();  
+  
   return (
-    <div>
+    <>
+    {isLogin ? <div>
       <Header />
       <Footer />
-    </div>
+    </div> : <Login />}
+    </>
   )
 }
 

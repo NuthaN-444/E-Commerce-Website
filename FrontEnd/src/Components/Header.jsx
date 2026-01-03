@@ -2,8 +2,10 @@ import React from 'react'
 import './Style/Header.css'
 import Button from './Button'
 import {Link} from "react-router-dom"
+import { UseAllContext } from '../Contexts/AllContext'
 
 const Header = () => {
+  const {isLogin,setIsLogin} = UseAllContext();
   return (
     <div className='outer-layer-header'>
 
@@ -23,11 +25,18 @@ const Header = () => {
 
       {/* Add toggle btn  */}
 
+      {!isLogin ? 
       <div className='login-signup-btn'>
         <Link to="/Login"><Button content={"Login"}/></Link>
         <p>/</p>
         <Link to="/Register"><Button content={"Signup"}/></Link>
-      </div>
+      </div> 
+      : <div>
+        <button onClick={() => { 
+          setIsLogin(false)
+        }
+          }>Logout</button>
+        </div>}
     </div>
   )
 }

@@ -7,23 +7,26 @@ import Profile from './Pages/Profile'
 import Order from './Pages/Order'
 import Cart from './Pages/Cart'
 import Admin from './Pages/Admin'
+import { AllContextProvider } from './Contexts/AllContext'
 
 
 function App() {
 
   return (
     <>
-     <BrowserRouter>
+      <BrowserRouter>
+        <AllContextProvider>
           <Routes>
-              <Route path='/' element={<Home/>} />
-              <Route path='/Login' element={<Login/>} />
-              <Route path='/Register' element={<Register/>} />
-              <Route path='/Profile' element={<Profile/>} />
-              <Route path='/Order' element={<Order/>} />
-              <Route path='/Cart' element={<Cart/>} />
-              <Route path='/Admin' element={<Admin/>} />
+            <Route path='/' element={<Home />} />
+            <Route path='/Login' element={<Login />} />
+            <Route path='/Register' element={<Register />} />
+            <Route path='/Profile' element={<Profile />} />
+            <Route path='/Order' element={<Order />} />
+            <Route path='/Cart' element={<Cart />} />
+            <Route path='/Admin' element={<Admin />} />
           </Routes>
-     </BrowserRouter>
+        </AllContextProvider>
+      </BrowserRouter>
     </>
   )
 }

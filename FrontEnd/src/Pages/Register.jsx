@@ -2,8 +2,10 @@ import React, { useRef, useState , useEffect} from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './Style/Register.css'
+import { UseAllContext } from "../Contexts/AllContext";
 
 const Register = () => {
+  const {isLogin,setIsLogin} = UseAllContext();
   const navigate = useNavigate();
   const [invalidMessage,setInvalidMessage] = useState("");
   const [showInvalidMessage,setShowInvalidMessage] = useState(false);
@@ -37,11 +39,14 @@ const Register = () => {
 
       return;  
     }
+      setIsLogin(true);
+      navigate("/");
       setEmail("");
       setPassword(""); 
       setConfirmPassword("");
       setUsername("");
   }
+
 
   return (
     <>

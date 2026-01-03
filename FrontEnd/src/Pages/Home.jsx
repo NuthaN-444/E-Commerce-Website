@@ -13,7 +13,6 @@ const Home = () => {
       <Pagination category={"Womens Collection "}productDetail={{rating:4}}/>
       <Pagination category={"Electronics"} productDetail={{rating:3}}/>
       <Pagination category={"Grocery"} productDetail={{rating:2}}/>
-
       <Footer />
     </>
   )
