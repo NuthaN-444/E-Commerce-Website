@@ -1,12 +1,14 @@
 .product-card {
   width: 280px;
+  flex: 0 0 280px;
   background: #f8f8f8;
   border-radius: 18px;
   overflow: hidden;
   position: relative;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s;
 }
+
 
 .product-card:hover {
   transform: translateY(-6px);

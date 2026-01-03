@@ -14,8 +14,21 @@ const Pagination = ({category}) => {
         <ProductCard/>
         <ProductCard/>
         <ProductCard/>
-
-
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
+        <ProductCard/>
     </div>
     </div>
   )

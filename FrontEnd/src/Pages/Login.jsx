@@ -5,18 +5,54 @@ import './Style/Login.css'
 
 
 const Login = () => {
+  const [invalidMessage,setInvalidMessage] = useState("");
+  const [showInvalidMessage,setShowInvalidMessage] = useState(false);
+  const invalidMessageDivRef = useRef();
   const navigate = useNavigate();
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
+  
+  
   function submitHandler(e) {
       e.preventDefault();
+      
       setEmail("");
       setPassword("")
   }
 
+  useEffect(() => {
+    if (!showInvalidMessage) return;
+
+    const timer = setTimeout(() => {
+      setShowInvalidMessage(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [showInvalidMessage]);
+
+  function submitHandler(e) {
+    e.preventDefault();
+    if (password != confirmPassword) {
+        setInvalidMessage("password is not matching !");
+        setShowInvalidMessage(true);
+        return;
+      }
+    if (username.length < 5) {
+      setInvalidMessage("Username Must be greater than 5 characters .");
+      setShowInvalidMessage(true);
+
+      return;  
+    }
+      setEmail("");
+      setPassword(""); 
+      setConfirmPassword("");
+      setUsername("");
+  }
+
 
   return (
-    <form onSubmit={submitHandler}>
+    <>
+    <form onSubmit={submitHandler} id='login-form'>
       <div className='login-container'>
         <h1 className='login-title'>Login</h1>
         <div className='email-div'>  
@@ -34,6 +70,8 @@ const Login = () => {
         </div>
       </div>
       </form>
+       {showInvalidMessage && <div className="display-invalid-message" ref={invalidMessageDivRef} >{invalidMessage}</div>}
+      </>
   )
 }
 
