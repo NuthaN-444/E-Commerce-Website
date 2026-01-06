@@ -1,4 +1,4 @@
-const Register = require("../models/user");
+const User = require("../models/user");
 const bcrypt = require('bcryptjs');
 
 
@@ -9,13 +9,23 @@ const updateUser = async(req,res) => {
     try {
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password,saltRounds);
-        const updatingUserData = await Register.findOneAndUpdate({email},{$set : {email,hashedPassword,username}},{new:true});
+        const updatingUserData = await User.findOneAndUpdate({email},{$set : {email,hashedPassword,username}},{new:true});
     } catch (error) {
         res.status(500).json("Server Error "+error);
     }
 }
 
 
+const userDelete = async(req,res) => {
+    const {email} = req.params;
+    try {
+        await User.findOneAndDelete({email});
+    } catch (error){
+        res.status(500).json("server error "+error);
+    }
+}
+
 module.exports = {
-    updateUser
+    updateUser,
+    userDelete
 }
