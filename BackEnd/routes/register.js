@@ -13,4 +13,5 @@ router.post("/",createUser);
 router.put("/:email",updateUser);
 
 router.delete("/:email",userDelete);
+
 module.exports = router;

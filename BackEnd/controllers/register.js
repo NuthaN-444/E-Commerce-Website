@@ -19,8 +19,7 @@ const createUser = async (req,res) => {
     try{
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password,saltRounds);
-        console.log(hashedPassword);
-        const userCreated = await Register.create({email,hashedPassword,username});
+        const userCreated = await Register.create({email,password:hashedPassword,username});
         res.json("successfully registered",userCreated);
     } catch (error) {
         res.json("Failed to register try again ! "+error);
@@ -31,6 +30,4 @@ const createUser = async (req,res) => {
 module.exports = {
     getUser,
     createUser
-    // updateUser,
-
 }

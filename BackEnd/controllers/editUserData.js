@@ -9,7 +9,7 @@ const updateUser = async(req,res) => {
     try {
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password,saltRounds);
-        const updatingUserData = await User.findOneAndUpdate({email},{$set : {email,hashedPassword,username}},{new:true});
+        const updatingUserData = await User.findOneAndUpdate({email},{$set : {email,password:hashedPassword,username}},{new:true});
     } catch (error) {
         res.status(500).json("Server Error "+error);
     }
