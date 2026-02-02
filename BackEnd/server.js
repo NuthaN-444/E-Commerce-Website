@@ -12,6 +12,7 @@ app.use(express.json());
 //routing files
 const register = require('./routes/register');
 const login = require("./routes/login");
+const product = require("./routes/admin");
 
 
 //DB connetion
@@ -27,12 +28,28 @@ app.get("/",(req,res) => {
 });
 
 
+// Auth -- Start
+
 //register account
 app.use("/api/register",register);
 
-
 //login account
 app.use("/api/login",login);
+
+// Auth -- End
+
+
+
+
+
+
+
+// Product(Admin) -- Start
+
+app.use("/api/product",product);
+
+// Product(Admin) -- end
+
 
 
 app.listen(port,() => {

@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const Register = require("../models/user")
-const bcrypt  = require('bcryptjs');
 const  {getUser,createUser}  = require('../controllers/register');
 const { updateUser,userDelete } = require('../controllers/editUserData');
 
