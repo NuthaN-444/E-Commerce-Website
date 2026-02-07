@@ -1,27 +1,30 @@
 import React from "react";
 import "./Style/ProductCard.css";
 
-const ProductCard = ({image="public/vite.svg",name="jkasbdjkbad",description="distinctio totam dolor unde numquam optio. Cupiditate molestiae officiis repellat quaerat minima quisquam illum quod facilis sunt.",rating=5,actualPrice=5000,discountPercent=30}) => {
-  const discountedPrice = actualPrice - (actualPrice * discountPercent) / 100;
+
+// {image="public/vite.svg",productName="jkasbdjkbad",productDescription="distinctio totam dolor unde numquam optio. Cupiditate molestiae officiis repellat quaerat minima quisquam illum quod facilis sunt.",ratings=5,price=5000,discountPrice=30}
+const ProductCard = ({url,productName,productDescription,ratings,price,discountPrice}) => {
+    
+  let offer = (((price - discountPrice) / price) * 100).toFixed(2);
 
   return (
     <div className="product-card">
 
       <div className="discount-badge">
-        {discountPercent}% OFF
+        {offer}% OFF
       </div>
 
-      <img src={image} alt={name} className="product-image" />
+      <img src={url} alt={productName} className="product-image" />
 
       <div className="product-info">
-        <h3 className="product-name">{name}</h3>
-        <p className="product-desc">{description}</p>
+        <h3 className="product-name">{productName}</h3>
+        <p className="product-desc">{productDescription}</p>
 
         <div className="ratings">
           {[...Array(5)].map((_, index) => (
             <span
               key={index}
-              className={index < rating ? "star filled" : "star"}
+              className={index < ratings ? "star filled" : "star"}
             >
               ★
             </span>
@@ -30,8 +33,8 @@ const ProductCard = ({image="public/vite.svg",name="jkasbdjkbad",description="di
 
 
         <div className="price">
-          <span className="discounted-price">₹{discountedPrice}</span>
-          <span className="actual-price">₹{actualPrice}</span>
+          <span className="discounted-price">₹{discountPrice}</span>
+          <span className="actual-price">₹{price}</span>
         </div>
 
 

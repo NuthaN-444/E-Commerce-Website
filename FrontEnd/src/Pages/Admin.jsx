@@ -9,7 +9,7 @@ import "./Style/Admin.css"
 
 
 const Admin = () => {
-    const {userData} = UseAllContext();
+    const {userData,prodDetails, setProdDetails} = UseAllContext();
   return (
     <>
         {(userData.role===`${import.meta.env.VITE_ADMIN_ROLE}`)?
@@ -18,13 +18,12 @@ const Admin = () => {
               <div className='produ-details-card'>
               <AddProd />
               <div className='prod-card-div-admin'>
-              <ProductCard/> </div>
+              <ProductCard url={prodDetails.url} productName={prodDetails.productName} productDescription={prodDetails.productDescription} ratings={prodDetails.ratings} price={prodDetails.price} discountPrice={prodDetails.discountPrice}/> </div>
               </div>
               <Footer />
               </div>
           :<div>user</div>
         }
-
     </>
   )
 }

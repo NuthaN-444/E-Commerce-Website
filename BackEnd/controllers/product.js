@@ -38,13 +38,9 @@ const getProdByCategory = async(req,res) => {
 //adding product
 const addProduct = async(req,res) => {
     let {productName,productDescription,category,price,discountPrice,offer,ratings,url} = req.body;
-    price = Number(price);
-    discountPrice = Number(discountPrice);
-    offer = Number(offer);
-    ratings = Number(ratings);
     try {
         const addingProductData = await Product.create({productName,productDescription,category,price,discountPrice,offer,ratings,url});
-        res.json("successfully created.",addingProductData);
+        res.json({message:"successfully created.",prodDetailsBack:addingProductData});
     } catch (error){
         res.json("Failed to add the product ! "+error);
     }

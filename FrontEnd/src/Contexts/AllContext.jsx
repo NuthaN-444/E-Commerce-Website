@@ -10,6 +10,8 @@ const AllContext = createContext();
 
 export const AllContextProvider = ({ children }) => {
     const navigate = useNavigate();
+
+    //fetched the user data from sessionStorage if not set dummy data
     const [userData,setUserData] = useState(()=>{
         const userdetail = sessionStorage.getItem("userData");
         return userdetail ? JSON.parse(userdetail) : 
@@ -17,7 +19,7 @@ export const AllContextProvider = ({ children }) => {
             _id: "0", email: "@gmail.com",role:"none"
         };
     });
-
+    //fetched the user data from sessionStorage if not set dummy data
 
 
 
@@ -34,11 +36,22 @@ export const AllContextProvider = ({ children }) => {
             sessionStorage.setItem("userData",JSON.stringify(userData));
         }
     },[isLogin]);
+    //stores is user login or not
+
 
 
 
     //Adding Product details by Admin
-    const [prodDetails,setProdDetails] = useState(null);
+    const [prodDetails,setProdDetails] = useState({});
+
+    // useEffect(()=>{
+    //   console.log(prodDetails);
+    // },[prodDetails]);
+
+    //Adding Product details by Admin
+
+
+
 
     return (
         <AllContext.Provider
@@ -49,7 +62,11 @@ export const AllContextProvider = ({ children }) => {
                 
                 //STORES User data in the form of object {}
                 userData,
-                setUserData
+                setUserData,
+
+                //Stores the admin adding the product details
+                prodDetails,
+                setProdDetails
             }}>
 
             {children}

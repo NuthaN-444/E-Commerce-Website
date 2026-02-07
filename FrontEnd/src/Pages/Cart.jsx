@@ -4,6 +4,8 @@ import Footer from '../Components/Footer'
 import { UseAllContext } from '../Contexts/AllContext'
 import { useNavigate } from 'react-router-dom'
 import Login from './Login'
+
+
 const Cart = () => {
     const {isLogin,setIsLogin,userData} = UseAllContext();
     const navigate = useNavigate();
