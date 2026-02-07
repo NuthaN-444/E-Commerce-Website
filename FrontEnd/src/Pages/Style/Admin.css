@@ -1,0 +1,14 @@
+
+.produ-details-card {
+    width: 100vw;
+    margin-top: 8%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+}
+
+.prod-card-div-admin {
+    position: relative;
+    top: 180px;
+    left: 30%;
+}

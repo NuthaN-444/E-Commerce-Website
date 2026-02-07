@@ -37,6 +37,9 @@ export const AllContextProvider = ({ children }) => {
 
 
 
+    //Adding Product details by Admin
+    const [prodDetails,setProdDetails] = useState(null);
+
     return (
         <AllContext.Provider
             value={{

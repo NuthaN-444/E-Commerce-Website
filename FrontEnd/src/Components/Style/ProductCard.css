@@ -1,5 +1,6 @@
 .product-card {
   width: 280px;
+  height: fit-content;
   flex: 0 0 280px;
   background: #f8f8f8;
   border-radius: 18px;

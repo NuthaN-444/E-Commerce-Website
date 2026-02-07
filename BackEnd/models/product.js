@@ -23,6 +23,7 @@ const productSchema = mongoose.Schema({
         type:Number,
     },
     ratings:{
+        default:0,
         type:Number,
     },
     url:{
