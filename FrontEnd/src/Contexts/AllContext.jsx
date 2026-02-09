@@ -43,14 +43,19 @@ export const AllContextProvider = ({ children }) => {
 
     //Adding Product details by Admin
     const [prodDetails,setProdDetails] = useState({});
-
-    // useEffect(()=>{
-    //   console.log(prodDetails);
-    // },[prodDetails]);
-
     //Adding Product details by Admin
 
 
+
+
+    //storing All Product data from backend 
+    const [allProductFromBackend,setAllProductFromBackend] = useState([]);
+    //storing All Product data from backend 
+
+    
+    //storing all category
+    const [allCategory,setAllCategory] = useState([]);
+    //storing all category
 
 
     return (
@@ -66,7 +71,13 @@ export const AllContextProvider = ({ children }) => {
 
                 //Stores the admin adding the product details
                 prodDetails,
-                setProdDetails
+                setProdDetails,
+
+                //storing All Product data from backend 
+                allProductFromBackend,setAllProductFromBackend,
+
+                //storing all category
+                allCategory,setAllCategory
             }}>
 
             {children}

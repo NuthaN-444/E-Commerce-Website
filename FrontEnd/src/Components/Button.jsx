@@ -8,4 +8,4 @@ const Button = ({content}) => {
   )
 }
 
-export default Button
+export default Button;

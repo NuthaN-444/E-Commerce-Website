@@ -34,4 +34,4 @@ const Pagination = ({category}) => {
   )
 }
 
-export default Pagination
+export default Pagination;

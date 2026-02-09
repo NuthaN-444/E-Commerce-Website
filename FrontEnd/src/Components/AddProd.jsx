@@ -27,16 +27,12 @@ const AddProd = () => {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/product`,{productName:prodDetails.productName, productDescription:prodDetails.productDescription, category:prodDetails.category, price:prodDetails.price, discountPrice:prodDetails.discountPrice, offer:prodDetails.offer, ratings:prodDetails.ratings, url:prodDetails.url});
             if(response.data.message==="successfully created."){
                 alert(response.data.prodDetailsBack.productName+" added successfully");
-                console.log("he");
             }
         } catch(error) {
             alert("something went wrong, try again!");
             console.log(error)
         }
     }
-
-
-
 
 
 

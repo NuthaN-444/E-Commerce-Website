@@ -18,6 +18,20 @@ const getProduct = async(req,res) => {
 }
 
 
+//getting only types of categories,no duplicate value
+const getOnlyCategory = async(req,res) => {
+    try {
+        const category = await Product.distinct("category");
+        console.log(category);
+        if(!category) return res.json("Could not able to fetch it");
+        res.json({message:"fetch successfully.",category:category})
+    } catch (error) {
+        res.json({message:"Server Error",error:error}).status(500);
+    }
+}
+
+
+
 //getting product by category
 const getProdByCategory = async(req,res) => {
     const {category} = req.params;
@@ -81,4 +95,4 @@ const deleteProduct = async(req,res) => {
 
 
 
-module.exports = {getProduct,getProdByCategory,addProduct,updateProduct,deleteProduct}
+module.exports = {getProduct,getProdByCategory,getOnlyCategory,addProduct,updateProduct,deleteProduct}
