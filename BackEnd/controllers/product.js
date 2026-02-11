@@ -22,7 +22,6 @@ const getProduct = async(req,res) => {
 const getOnlyCategory = async(req,res) => {
     try {
         const category = await Product.distinct("category");
-        console.log(category);
         if(!category) return res.json("Could not able to fetch it");
         res.json({message:"fetch successfully.",category:category})
     } catch (error) {
@@ -35,7 +34,6 @@ const getOnlyCategory = async(req,res) => {
 //getting product by category
 const getProdByCategory = async(req,res) => {
     const {category} = req.params;
-    console.log(category);
     try {
         const getProd = await Product.find({category});
         if(getProd.length == 0){

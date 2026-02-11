@@ -14,10 +14,7 @@ export const AllContextProvider = ({ children }) => {
     //fetched the user data from sessionStorage if not set dummy data
     const [userData,setUserData] = useState(()=>{
         const userdetail = sessionStorage.getItem("userData");
-        return userdetail ? JSON.parse(userdetail) : 
-        {
-            _id: "0", email: "@gmail.com",role:"none"
-        };
+        return userdetail ? JSON.parse(userdetail) : {};
     });
     //fetched the user data from sessionStorage if not set dummy data
 
@@ -25,17 +22,19 @@ export const AllContextProvider = ({ children }) => {
 
     //stores is user login or not
     const [isLogin, setIsLogin] = useState(() => {
-        const login = sessionStorage.getItem("isLogin");
-        return login ? true : false;
-    }); 
-
+        let getLogin = sessionStorage.getItem("isLogin");
+        return getLogin ? JSON.parse(getLogin) : false;
+    });
 
     useEffect(() => {
-        sessionStorage.setItem("isLogin",isLogin);
-        if(isLogin === true) {
-            sessionStorage.setItem("userData",JSON.stringify(userData));
+    sessionStorage.setItem("isLogin",JSON.stringify(isLogin));
+        if (isLogin===true) {
+            sessionStorage.setItem("userData", JSON.stringify(userData));
+        } else {
+            sessionStorage.removeItem("userData");
         }
-    },[isLogin]);
+    }, [isLogin,userData]);
+
     //stores is user login or not
 
 
@@ -61,6 +60,8 @@ export const AllContextProvider = ({ children }) => {
 
 
 
+    const [allCartProduct,setAllCartProduct] = useState([]);
+
     
 
 
@@ -79,11 +80,11 @@ export const AllContextProvider = ({ children }) => {
                 prodDetails,
                 setProdDetails,
 
-                
-                
-
                 //storing all category
-                allCategory,setAllCategory
+                allCategory,setAllCategory,
+
+                //all cart product
+                allCartProduct,setAllCartProduct,
             }}>
 
             {children}

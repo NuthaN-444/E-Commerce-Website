@@ -1,11 +1,33 @@
 import React from "react";
 import "./Style/ProductCard.css";
-
+import { UseAllContext } from "../Contexts/AllContext";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 
 // {image="public/vite.svg",productName="jkasbdjkbad",productDescription="distinctio totam dolor unde numquam optio. Cupiditate molestiae officiis repellat quaerat minima quisquam illum quod facilis sunt.",ratings=5,price=5000,discountPrice=30}
-const ProductCard = ({url,productName,productDescription,ratings,price,discountPrice}) => {
+const ProductCard = ({_id,url,productName,productDescription,ratings,price,discountPrice}) => {
     
   let offer = (((price - discountPrice) / price) * 100).toFixed(2);
+
+      const {userData,allCartProduct,setAllCartProduct} = UseAllContext();
+
+
+    const addToCart = async(_id) => {
+      try{
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/cart`,{email:userData.email,_id:_id});
+        if(response.data.message==="successfully added."){
+          
+          alert("Product Added to cart.");
+          setAllCartProduct(prevData => [...prevData,response.data.addedCart]);
+          console.log(allCartProduct);
+        }
+      }catch(error) {
+        alert("Failed to add. try again !")
+        console.log(error)
+      }
+    }
+
 
   return (
     <div className="product-card">
@@ -38,7 +60,7 @@ const ProductCard = ({url,productName,productDescription,ratings,price,discountP
         </div>
 
 
-        <button className="add-to-cart-btn">
+        <button className="add-to-cart-btn" onClick={() => addToCart(_id)}>
           Add to Cart
         </button>
       </div>

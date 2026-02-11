@@ -13,7 +13,7 @@ app.use(cors());
 const register = require('./routes/register');
 const login = require("./routes/login");
 const product = require("./routes/admin");
-
+const cart = require("./routes/cart");
 
 //DB connetion
 connectDB();
@@ -56,7 +56,10 @@ app.use("/api/product",product);
 
 
 
+// cart ---start
 
+app.use("/api/cart",cart);
+// cart ---end
 
 
 
