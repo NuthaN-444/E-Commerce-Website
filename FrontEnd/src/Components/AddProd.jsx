@@ -19,6 +19,17 @@ const AddProd = () => {
     const [url,setUrl] = useState("");
 
 
+    const clearAllFields = () => {
+        setProdNameInput("");
+        setProductDescriptionInput("");
+        setCategoryInput("");
+        setPriceInput(0);
+        setDiscountPriceInput(0);
+        setRatings();
+        setUrl(""); 
+    }
+
+
     async function toTheProductDetailsInDataBase(prodDetails) {
         try{
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/product`,{productName:prodDetails.productName, productDescription:prodDetails.productDescription, category:prodDetails.category, price:prodDetails.price, discountPrice:prodDetails.discountPrice, offer:prodDetails.offer, ratings:prodDetails.ratings, url:prodDetails.url});
@@ -71,7 +82,7 @@ return (
             </div>
 
         <div className='add-prod-btn-admin-div'>
-        <button className='add-prod-btn-admin' type='reset'>Reset</button>
+        <button className='add-prod-btn-admin' type='reset' onClick={clearAllFields}>Reset</button>
         <button className='add-prod-btn-admin' type='submit'>Preview</button>
         <button className='add-prod-btn-admin' type='submit'  onClick={() => toTheProductDetailsInDataBase(prodDetails)}>Add to Database</button>
         </div>

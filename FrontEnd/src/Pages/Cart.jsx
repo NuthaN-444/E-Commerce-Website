@@ -6,33 +6,33 @@ import { UseAllContext } from '../Contexts/AllContext'
 import { useNavigate } from 'react-router-dom'
 import Login from './Login'
 import axios from 'axios'
-
+import './Style/Cart.css'
 
 const Cart = () => {
-    const {isLogin,setIsLogin,userData,allCartProduct,setAllCartProduct} = UseAllContext();
+    const {isLogin,userData,allCartProduct,setAllCartProduct} = UseAllContext();
     const navigate = useNavigate();
     const fetchedCartData = useRef(false);
+    
 
-
-  const getCartProduct = async() => {
+  const getProduct = async() => {
     try{
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/cart/${userData.email}`);
-        if(response.data.message==="Successfully Fetched.") {
-          setAllCartProduct(response.data.cartProduct);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/cart/allcartproduct/${userData.email}`);
+      if(response.data.message==="Successfully Fetched."){
+          setAllCartProduct(response.data.cartProducts);
+          return;
         }
+        alert("No Cart Item");
     } catch(error) {
-      alert("Axios Error,Try Again");
-      console.log(error)
+      alert("Failed to Fetch!");
+      console.log(error);
     }
   }
 
-useEffect(() => {
-    if(fetchedCartData.current){ return;}
 
-    fetchedCartData.current = true;
-    getCartProduct();
 
-}, [fetchedCartData,userData]);
+useEffect(()=>{
+  getProduct();
+},[])
 
 
 
@@ -43,12 +43,16 @@ useEffect(() => {
     {isLogin ? 
     <div>
       <Header />
-          { allCartProduct.length>0 ?
+        <div className='cart-product'>
+
+          { allCartProduct.length > 0 ? 
             allCartProduct.map((item) => (
               <CartProductCard key={item._id} _id={item._id} url={item.url} 
           productName={item.productName} productDescription={item.productDescription} ratings={item.ratings} price={item.price} discountPrice={item.discountPrice} />
             )):<div>No Product added</div>
           }
+
+          </div>
       <Footer />
     </div> : <Login />}
 

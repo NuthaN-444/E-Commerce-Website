@@ -52,9 +52,10 @@ export const AllContextProvider = ({ children }) => {
 
 
 
-    const [allCartProduct,setAllCartProduct] = useState([]);
 
-    
+    //store the product by id from cart product id
+    const [allCartProduct,setAllCartProduct] = useState([]);
+    //store the product by id from cart product id
 
 
     return (
@@ -75,8 +76,9 @@ export const AllContextProvider = ({ children }) => {
                 //storing all category
                 allCategory,setAllCategory,
 
-                //all cart product
-                allCartProduct,setAllCartProduct,
+
+                // all cart product
+                allCartProduct,setAllCartProduct
             }}>
 
             {children}

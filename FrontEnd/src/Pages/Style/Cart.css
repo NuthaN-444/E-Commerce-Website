@@ -1,0 +1,8 @@
+.cart-product {
+    margin-top: 150px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 🔥 6 items per row */
+    gap: 30px; /* spacing between cards */
+    padding: 50px;
+}

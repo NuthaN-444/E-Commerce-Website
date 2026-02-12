@@ -5,7 +5,16 @@ import {Link} from "react-router-dom"
 import { UseAllContext } from '../Contexts/AllContext'
 
 const Header = () => {
-  const {isLogin,setIsLogin,userData} = UseAllContext();
+  const {isLogin,setIsLogin,userData,setAllCartProduct} = UseAllContext();
+
+  const clearAll = () => {
+          setIsLogin(false);
+          sessionStorage.setItem("userData",JSON.stringify({}));
+          setAllCartProduct([]);
+  }
+
+
+
 
   if (userData.length!==0){
   return (
@@ -47,11 +56,7 @@ const Header = () => {
         <Link to="/Register"><Button content={"Signup"}/></Link>
       </div> 
       : <div>
-        <button onClick={() => { 
-          setIsLogin(false)
-          sessionStorage.setItem("userData",JSON.stringify({}));
-        }
-          }>Logout</button>
+        <button onClick={clearAll}>Logout</button>
         </div>}
     </div>
   )
@@ -83,11 +88,7 @@ const Header = () => {
         <Link to="/Register"><Button content={"Signup"}/></Link>
       </div> 
       : <div>
-        <button onClick={() => { 
-          setIsLogin(false)
-          sessionStorage.setItem("userData",JSON.stringify({}));
-        }
-          }>Logout</button>
+        <button onClick={clearAll}>Logout</button>
         </div>}
     </div>
   )
