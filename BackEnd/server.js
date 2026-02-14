@@ -21,7 +21,7 @@ connectDB();
 
 //Port
 const PORT = process.env.PORT || 8080;
-
+console.log(PORT)
 
 app.get("/",(req,res) => {
     res.send("Hello");
