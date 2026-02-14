@@ -20,7 +20,7 @@ connectDB();
 
 
 //Port
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 
 app.get("/",(req,res) => {
@@ -63,6 +63,6 @@ app.use("/api/cart",cart);
 
 
 
-app.listen(port,() => {
+app.listen(port,"0.0.0.0",() => {
     console.log(`Server is listening at ${port}`);
 })
