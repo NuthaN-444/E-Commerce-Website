@@ -87,7 +87,9 @@ const Header = () => {
         <Link to="/Register"><Button content={"Signup"}/></Link>
       </div> 
       : <div>
-        <button onClick={clearAll}>Logout</button>
+        <button onClick={() => {
+          clearAll()
+          }}>Logout</button>
         </div>}
     </div>
   )
