@@ -6,12 +6,12 @@ const userLoginController = async(req,res) => {
     try {
         const user = await User.findOne({email});
 
-        if(!user){ return res.status(404).json("There is no such account in that email");}
+        if(!user){ return res.status(404).json({message:"There is no such account in that email"});}
         
         const isLogin = await bcrypt.compare(password,user.password);
 
         if(!isLogin){
-            return res.status(401).json("Password incorrect");
+            return res.status(401).json({message:"Password incorrect"});
         }
 
         return res.json({message:"Successfully Login",userData:user});
