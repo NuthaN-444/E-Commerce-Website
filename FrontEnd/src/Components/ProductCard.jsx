@@ -4,18 +4,24 @@ import { UseAllContext } from "../Contexts/AllContext";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 // {image="public/vite.svg",productName="jkasbdjkbad",productDescription="distinctio totam dolor unde numquam optio. Cupiditate molestiae officiis repellat quaerat minima quisquam illum quod facilis sunt.",ratings=5,price=5000,discountPrice=30}
 const ProductCard = ({_id,url,productName,productDescription,ratings,price,discountPrice}) => {
     
+  const navigate = useNavigate();
   let offer = (((price - discountPrice) / price) * 100).toFixed(2);
 
-      const {userData,allCartProduct,setAllCartProduct} = UseAllContext();
+      const {userData,allCartProduct,setAllCartProduct,isLogin,setIsLogin} = UseAllContext();
 
 
 
     //add to card for user
     const addToCart = async(_id) => {
+      if(!isLogin){
+        navigate("/Login")
+      }
       try{
         const response = await axios.post(`${import.meta.env.VITE_API_URL}/cart`,{email:userData.email,_id:_id});
         if(response.data.message==="successfully added."){
