@@ -1,10 +1,9 @@
 import React from 'react'
 import './Style/BigAds.css'
-import girlPhoto from '/Photos/420d36d9f839bb8787eb34a8571bcf05-removebg-preview.png'
+import speakerPhoto from '/Photos/hand-holding-orange-megaphone-communication-announcement-alert-loudspeaker-isolated-transparency-background-motivation-public-speaking-attention-en.png'
 
 const BigAds = () => {
-  let urlBigAds =
-"https://t3.ftcdn.net/jpg/18/82/12/22/360_F_1882122261_9PEDA691s0bQyAKXizXBfq980Pm1RVxf.jpg"
+
 
 
 
@@ -12,7 +11,8 @@ const BigAds = () => {
   return (
 
     <div className='big-ads-container-img'>
-      <img src={urlBigAds} alt="Offer Banner" />
+      <img src={speakerPhoto} alt="Offer Banner" />
+        <h3 className='offer-closes-soon'>Offers Closes soooon</h3>
     </div>
 
   )

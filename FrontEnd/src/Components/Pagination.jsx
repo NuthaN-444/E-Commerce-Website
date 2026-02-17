@@ -39,7 +39,7 @@ useEffect(() => {
 
   return (
     <div className='pagination-container'>
-    <h1>{category}</h1>
+    <h1 className='category'>{category}</h1>
     <div className='pagination-product-card-container'>
       { prodBySingleCategory.length > 0 ?
         prodBySingleCategory.map((item) => (
