@@ -38,7 +38,7 @@ const Header = () => {
       <div className='routes-home-cart-order'>
         {userData.role===import.meta.env.VITE_ADMIN_ROLE?
         <Link to="/Admin"><p>Admin</p></Link>
-        :<Link to="/Profile"><p>Profile</p></Link>
+        :<Link to="/Profile"><p className='profile-btn'>Profile</p></Link>
         }
       </div>
 :<div></div>
@@ -87,10 +87,11 @@ const Header = () => {
         <Link to="/Register"><Button content={"Signup"}/></Link>
       </div> 
       : <div>
-        <button onClick={() => {
+        <button className='logout-btn' onClick={() => {
           clearAll()
           }}>Logout</button>
         </div>}
+
     </div>
   )
 }

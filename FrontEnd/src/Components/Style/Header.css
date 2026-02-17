@@ -75,3 +75,49 @@ input:focus{
     font-size: 30px;
     margin-top: 4px;
 }
+
+
+/* @media only screen and (max-width:600px) {
+    
+} */
+@media only screen and (max-width:600px) {
+
+    .outer-layer-header {
+        left: 46%;
+        top: 15px;
+        width: 85%;
+        height: 60px;
+        border-radius: 30px;
+        padding: 0 10px;
+        justify-content: space-between;
+    }
+
+    .website-name {
+        font-size: 18px;
+    }
+
+    .routes-home-cart-order {
+        gap: 20px;
+        font-size: 14px;
+    }
+
+    .routes-home-cart-order p {
+        padding: 4px 6px;
+    }
+
+    .search-bar-div {
+        display: none;   /* Hide search bar on mobile */
+    }
+
+    .login-signup-btn {
+        gap: 10px;
+    }
+
+    .login-signup-btn p {
+        font-size: 18px;
+        margin-top: 0;
+    }
+    .profile-btn {
+        margin-left: -10px;
+    }
+}
