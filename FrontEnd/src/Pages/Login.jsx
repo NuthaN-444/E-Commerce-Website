@@ -35,7 +35,7 @@ const Login = () => {
 
       } catch (error) {
           console.log("Axios login error : ",error);
-          alert("Login Page : Something went wrong !");
+          alert(error.response?.data?.message || "Client error");
       }
   }
 

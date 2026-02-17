@@ -24,6 +24,22 @@
     /* background-color: red; */
     margin-left: 30px;
 }
+
+.empty-image-div {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.empty-image {
+    margin-left: 0%;
+    width: 300px;
+    height: 300px;
+}
+.cart-product{
+    width: fit-content;
+}
 body{
     overflow-x:hidden;
 }

@@ -104,3 +104,109 @@ h2 {
     border-radius: 40px;
 }
 
+
+@media only screen and (max-width:600px){
+    .Addprod {
+    width: 85%;
+    /* height: 60vh; */
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.219);
+    position: relative;
+    top: 20%;
+    left: 0%;
+    display: flex;
+    flex-direction: column;
+    padding:20px 20px;
+    padding-right: 40px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+.file-uplaod-div-not-focus {
+    margin-top: 10px;
+    width: 80%;
+    height: 150px;
+    position: relative;
+    left: 10%;
+    border-radius: 20px;
+    border: 3px grey dotted;
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+
+}
+.file-uplaod-div-focus {
+    margin-top: 10px;
+    width: 80%;
+    height: 150px;
+    position: relative;
+    left: 10%;
+    border-radius: 20px;
+    border: 3px rgb(46, 184, 202) dashed;
+    background-color: rgba(34, 209, 221, 0.253);
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+}
+#photo-input {
+    position: relative;
+    left: 12%;
+    transform: translate(-50%);
+    width: 90px;
+    cursor: pointer;
+}
+
+.drag-drop-filename {
+    margin-top: 10px;
+}
+
+.prod-details {
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+}
+
+.prod-detail-div {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.prod-detail-div input {
+    width:40%;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: grey 1px solid;
+}
+
+.add-prod-btn-admin-div {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 10%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.add-prod-btn-admin {
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: black;
+    color:white;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+
+.add-prod-btn-admin:hover {
+    background-color: rgba(0, 0, 0, 0.767);
+    color:white;
+    border-radius: 40px;
+}
+}

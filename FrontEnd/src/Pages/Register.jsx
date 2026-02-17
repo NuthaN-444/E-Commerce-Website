@@ -57,8 +57,8 @@ const Register = () => {
       setUsernameValue("");
       }
     } catch(error) {
-      alert("Failed to Create account! try agian");
-      console.log(error)
+      alert(error.response?.data.message || "Register failed");
+      
     }
   }
 
