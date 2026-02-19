@@ -64,13 +64,13 @@ with hashed passwords.
 <pre>
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-FRONTEND_URL=your_frontend_url
 </pre>
 
 <h3>Frontend (.env)</h3>
 
 <pre>
 VITE_API_URL=your_backend_url
+VITE_ADMIN_ROLE=( Example Values : ADMIN , admin , MAINADMIN ) // defines the role value that will be recognized as an administrator in the application
 </pre>
 
 
