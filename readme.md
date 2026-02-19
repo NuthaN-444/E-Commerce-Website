@@ -112,6 +112,3 @@ add new features, or optimize performance.
 </p>
 
 <hr>
-
-<h2>📜 License</h2>
-<p>Built for learning and portfolio purposes.</p>
