@@ -1,13 +1,12 @@
 .big-ads-container-img {
-    /* margin-top: 100px; */
     width: 100%;
-    height: 700px;
-    background-color: black;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.big-ads-container-img img {
+/* .big-ads-container-img img {
     z-index: 0;
     position: relative;
     left: -100px;
@@ -23,4 +22,4 @@
     letter-spacing: 10px;
     font-size: 50px;
     transform: rotate(-20deg);
-}
+} */
