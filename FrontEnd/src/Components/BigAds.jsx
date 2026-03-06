@@ -11,8 +11,8 @@ const BigAds = () => {
   return (
 
     <div className='big-ads-container-img'>
-      <img src={speakerPhoto} alt="Offer Banner" />
-        <h3 className='offer-closes-soon'>Offers Closes soooon</h3>
+      {/* <img src={speakerPhoto} alt="Offer Banner" />
+        <h3 className='offer-closes-soon'>Offers Closes soooon</h3> */}
     </div>
 
   )
