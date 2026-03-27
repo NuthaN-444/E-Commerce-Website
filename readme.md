@@ -103,12 +103,26 @@ npm run dev
 
 <hr>
 
-<h2>🤝 Contribution</h2>
+<h2>🤝 Open for Contributions:</h2>
 
 <p>
 Contributions are welcome! <br>
-You can fork this repository, improve UI/UX,
-add new features, or optimize performance.
+If anyone is interested in contributing, feel free to collaborate!
+Possible contributions:
+• Update User Profile (Frontend)
+• Update Product Details (Frontend)
 </p>
 
+<h2>👉 Backend APIs for these features are already implemented</h2>
+
+<p>
+This project gave me hands-on experience in building scalable and secure web applications. Looking forward to adding more advanced features like payment integration and order tracking!
+I’d love to hear your feedback 😊
+</p>
 <hr>
+
+
+
+
+
+
